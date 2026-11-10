@@ -222,7 +222,7 @@ function BestSellers() {
             scrollBy(-1);
           }
         }}
-        className="no-scrollbar mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scroll-px-4 md:px-8 md:scroll-px-8 xl:px-12 xl:scroll-px-12"
+        className="no-scrollbar mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pt-2 pb-2 scroll-px-4 md:px-8 md:scroll-px-8 xl:px-12 xl:scroll-px-12"
       >
         {items.map((product) => (
           <div
@@ -230,7 +230,7 @@ function BestSellers() {
             data-card
             className="w-[72%] shrink-0 snap-start sm:w-[44%] lg:w-[31%] xl:w-[23.6%]"
           >
-            <ProductCard product={product} />
+            <ProductCard product={product} hoverLift />
           </div>
         ))}
       </div>

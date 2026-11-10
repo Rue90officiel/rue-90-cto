@@ -281,10 +281,51 @@
     }
   }
 
+  /* Product card — subtle premium lift + image zoom on hover.
+     Only applied to cards opted in with `hoverLift`, and only on devices
+     with a real pointer, so touch devices are never affected. */
+  .product-card {
+    transition:
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease;
+  }
+
+  .product-card-art {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 26px 50px -34px rgba(0, 0, 0, 0.95),
+        0 2px 10px -6px rgba(0, 0, 0, 0.8);
+    }
+
+    .product-card:hover .product-card-art {
+      transform: scale(1.06);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .anim-fade-up,
     .anim-fade {
       animation: none;
+    }
+
+    .product-card,
+    .product-card-art {
+      transition: none;
+    }
+
+    .product-card:hover {
+      transform: none;
+    }
+
+    .product-card:hover .product-card-art {
+      transform: none;
     }
 
     html {
